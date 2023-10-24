@@ -1,4 +1,4 @@
-package com.example.multitreading;
+package com.example.multithreading;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

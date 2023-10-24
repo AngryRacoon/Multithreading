@@ -1,22 +1,25 @@
-package com.example.multitreading;
+package com.example.multithreading;
 
 import javafx.application.Platform;
-import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 
 import java.util.Queue;
 
 public class Consumer implements Runnable {
     private Queue<Integer> counter;
-
-    private Circle circle;
+    private final Image villager_sleep =
+            new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\villager_sleep.png");
+    private final Image villager =
+            new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\villager.png");
+    private ImageView villager_status;
     private Pane queuePane;
 
-    public Consumer(Queue<Integer> counter, Circle circle, Pane queuePane) {
+    public Consumer(Queue<Integer> counter, ImageView villager_status, Pane queuePane) {
         this.counter = counter;
-        this.circle = circle;
+        this.villager_status = villager_status;
         this.queuePane =queuePane;
     }
     @Override
@@ -26,7 +29,7 @@ public class Consumer implements Runnable {
                 Thread.sleep(1500);// Задержка для имитации производства
                 synchronized (counter) {
                     while (counter.isEmpty()){
-                        Platform.runLater(() -> circle.setFill(Color.RED));
+                        Platform.runLater(() -> villager_status.setImage(villager_sleep));
                         counter.wait();
 
                     }
@@ -34,11 +37,15 @@ public class Consumer implements Runnable {
                     Platform.runLater(() -> {
                         if (!queuePane.getChildren().isEmpty()) {
                             queuePane.getChildren().remove(0);
+                            for(Node imageView: queuePane.getChildren()){
+                                imageView.setLayoutX(imageView.getLayoutX() - 70);
+                            }
+
                         }
+                        villager_status.setImage(villager);
                     });
                     System.out.println("покушал" + item);
 
-                    Platform.runLater(() -> circle.setFill(Color.GREEN));
                     counter.notifyAll();
                 }
             } catch (InterruptedException e) {

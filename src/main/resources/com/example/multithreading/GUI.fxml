@@ -7,13 +7,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
-<Pane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multitreading.AppController">
+<?import javafx.scene.image.ImageView?>
+<Pane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.multithreading.AppController">
     <children>
         <Button fx:id="startButton" layoutX="250.0" layoutY="300.0" text="Start" onAction="#onStartButtonClick"/>
         <Button fx:id="stopButton" layoutX="300.0" layoutY="300.0" text="Stop" onAction="#onStopButtonClick"/>
 
-        <Circle fx:id="producerCircle" layoutX="100.0" layoutY="100.0" radius="50.0" fill="RED"/>
-        <Circle fx:id="consumerCircle" layoutX="500.0" layoutY="100.0" radius="50.0" fill="RED"/>
-        <Pane fx:id="queuePane" layoutX="100.0" layoutY="200.0" prefWidth="600.0" prefHeight="50.0" />
+        <ImageView fx:id="stive" layoutX="100.0" layoutY="100.0" fitHeight="100" fitWidth="100"/>
+        <ImageView fx:id="villager" layoutX="400.0" layoutY="100.0" fitHeight="100" fitWidth="100" />
+        <Pane fx:id="queuePane" layoutX="125.0" layoutY="200.0" prefWidth="600.0" prefHeight="50.0" />
     </children>
 </Pane>

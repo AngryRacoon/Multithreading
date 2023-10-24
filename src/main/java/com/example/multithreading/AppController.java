@@ -1,13 +1,10 @@
-package com.example.multitreading;
+package com.example.multithreading;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,42 +12,37 @@ import java.util.Queue;
 public class AppController {
 
     @FXML
-    private Circle producerCircle;
+    private ImageView stive;
 
     @FXML
-    private Circle consumerCircle;
+    private ImageView villager;
     @FXML
     private HBox queueBox;
 
     @FXML
     private Pane queuePane;
     private Producer producer;
-    private Producer producer2;
     private Consumer consumer;
     private Thread producerThread;
     private Thread consumerThread;
     Queue<Integer> counter = new LinkedList<>();
 
     public void initialize() {
-        producerCircle.setFill(Color.RED);
-        consumerCircle.setFill(Color.RED);
+
+        stive.setImage(new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\stive_sleep.png"));
+        villager.setImage(new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\villager_sleep.png"));
     }
 
     @FXML
     private void onStartButtonClick() {
 
-        producer = new Producer(counter, producerCircle, queuePane);
-        producer2 = new Producer(counter, producerCircle, queuePane);
-        consumer = new Consumer(counter, consumerCircle, queuePane);
+        producer = new Producer(counter, stive, queuePane);
+        consumer = new Consumer(counter, villager, queuePane);
 
         producerThread = new Thread(producer);
-        Thread producerThread2 = new Thread(producer);
         consumerThread = new Thread(consumer);
 
-
-
         producerThread.start();
-        //producerThread2.start();
         consumerThread.start();
 
     }
@@ -61,6 +53,8 @@ public class AppController {
         consumerThread.interrupt();
         counter.clear();
         queuePane.getChildren().clear();
+        stive.setImage(new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\stive_sleep.png"));
+        villager.setImage(new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\villager_sleep.png"));
     }
 
 }

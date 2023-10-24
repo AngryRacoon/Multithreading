@@ -4,6 +4,6 @@ module com.example.multitreading {
 
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.multitreading to javafx.fxml;
-    exports com.example.multitreading;
+    opens com.example.multithreading to javafx.fxml;
+    exports com.example.multithreading;
 }

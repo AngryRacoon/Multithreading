@@ -15,9 +15,11 @@ public class Producer implements Runnable {
     private final Image stive_sleep = new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\stive_sleep.png");
     private final Image stive = new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\stive.png");
 
-    private List<String> imagePaths = Arrays.asList("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\Diamond.png", "C:\\Users\\admin\\IdeaProjects\\Multitreading1.0\\src\\main\\resources\\image\\Emerald.png",
-            "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\ender-perl.png", "C:\\Users\\admin\\IdeaProjects\\Multitreading1.0\\src\\main\\resources\\image\\Dragon-breathe.png",
-            "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\Golden-apple.png","C:\\Users\\admin\\IdeaProjects\\Multitreading1.0\\src\\main\\resources\\image\\Redstone-dust.png");
+    private List<String> imagePaths = Arrays.asList("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\Diamond.png", "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\Emerald.png",
+            "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\ender-perl.png", "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\Dragon-breathe.png",
+            "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\Golden-apple.png","C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\Redstone-dust.png",
+            "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\axolotl.png", "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\Golden_bar.png","C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\golden_carrot.png",
+            "C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\lapis.png");
     private Pane queuePane;
     private int imageIndex = 0;
 

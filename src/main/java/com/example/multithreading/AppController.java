@@ -26,12 +26,16 @@ public class AppController {
     private Thread producerThread;
     private Thread consumerThread;
     Queue<Integer> counter = new LinkedList<>();
+    public AppController(){
+
+    }
 
     public void initialize() {
-
         stive.setImage(new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\stive_sleep.png"));
         villager.setImage(new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\villager_sleep.png"));
     }
+
+
 
     @FXML
     private void onStartButtonClick() {
@@ -42,13 +46,16 @@ public class AppController {
         producerThread = new Thread(producer);
         consumerThread = new Thread(consumer);
 
+        producerThread.setDaemon(true);
+        consumerThread.setDaemon(true);
+
         producerThread.start();
         consumerThread.start();
 
     }
 
     @FXML
-    private void onStopButtonClick() {
+    public void onStopButtonClick() {
         producerThread.interrupt();
         consumerThread.interrupt();
         counter.clear();
@@ -56,5 +63,6 @@ public class AppController {
         stive.setImage(new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\stive_sleep.png"));
         villager.setImage(new Image("C:\\Users\\admin\\IdeaProjects\\Multithreading1.0\\src\\main\\resources\\image\\villager_sleep.png"));
     }
+
 
 }
